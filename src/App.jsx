@@ -6,6 +6,11 @@ import LoginForm from './components/LoginForm';
 import Home from './components/Home';
 import { auth } from './firebase/config';
 import { onAuthStateChanged } from 'firebase/auth';
+import { Planetas } from './pages/Planetas';
+import { Personajes } from './pages/Personajes';
+import { Peliculas } from './pages/Peliculas';
+
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -26,6 +31,9 @@ const App = () => {
         <Route path="/login" element={user ? <Navigate to="/home" /> : <LoginForm />} />
         <Route path="/home" element={user ? <Home /> : <Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/planetas" element={<Planetas/>}/>
+        <Route path="/peliculas" element={<Peliculas/>}/>
+        <Route path="/personajes" element={<Personajes/>}/>
       </Routes>
     </Router>
   );
